@@ -1,4 +1,4 @@
-
+.idea/
 uv.lock
 
 .python-version
@@ -17,3 +17,5 @@ __pycache__/
 .coverage
 dist/
 build/
+
+experiments/

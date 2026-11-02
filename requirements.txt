@@ -2,7 +2,7 @@ fastapi
 uvicorn[standard]
 pydantic
 httpx
-redis[hiredis]
+redis
 langgraph
 langchain-core
 sentence-transformers
@@ -11,3 +11,6 @@ boto3
 asyncpg
 reportlab
 langsmith
+tavily
+python-dotenv
+langchain-groq
