@@ -1,4 +1,7 @@
+
 from typing import TypedDict
+
+from agents.evaluation_schema import EvaluationClass
 
 
 class ResearchState(TypedDict, total=False):
@@ -6,22 +9,36 @@ class ResearchState(TypedDict, total=False):
     # User input
     query: str
 
-    # Planner output
+    # Planner Agent
     research_plan: list[str]
 
-    # Search output
+    # Search Agent
     sources: list[dict]
 
-    # Writer output
+    # Writer Agent
     report: str
 
-    # Orchestrator control
+    generated_sections: dict[str, str]
+    completed_sections: list[str]
+    failed_sections: list[str]
+    stage_attempts: dict[str, int]
+    writer_iteration: int
+
+    # Research Evaluator Agent
+    evaluation: EvaluationClass
+
+    # Python Report Validator
+    validation_passed: bool
+    validation_issues: list[str]
+
+    # Orchestrator Agent
     decision: str
     feedback: str
+    decision_reason: str
 
-    # Retry management
-    max_iterations: int
+    # Workflow control
     iteration: int
+    max_iterations: int
 
     # Execution status
     status: str
