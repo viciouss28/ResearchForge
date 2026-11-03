@@ -3,11 +3,18 @@ import os
 import re
 import time
 
-from agents.llm_config import get_agent_llm
 from graph.state import ResearchState
 
 
-llm = get_agent_llm("WRITER")
+from langchain_openai import ChatOpenAI
+
+llm = ChatOpenAI(
+    model=os.getenv("WRITER_MODEL", "gpt-6.1-terra"),
+    api_key=os.getenv("OPENAI_API_KEY"),
+    reasoning_effort="none",
+    max_retries=0,
+    timeout=120,
+)
 
 
 STAGES = [
